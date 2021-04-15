@@ -4,17 +4,17 @@
 "
 
 
+~/.config/nvim
+source ~/.config/nvim/parts/plug.vim
+source ~/.config/nvim/parts/packages.vim
+source ~/.config/nvim/parts/setup.vim
+source ~/.config/nvim/parts/visual.vim
 
-source ./parts/plug.vim
-source ./parts/packages.vim
-source ./parts/setup.vim
-source ./parts/visual.vim
-
-source ./parts/cmds.vim
-source ./parts/fns.vim
-source ./parts/mapping.vim
-source ./parts/plugconf.vim
-source ./parts/autocmd.vim
+source ~/.config/nvim/parts/cmds.vim
+source ~/.config/nvim/parts/fns.vim
+source ~/.config/nvim/parts/mapping.vim
+source ~/.config/nvim/parts/plugconf.vim
+source ~/.config/nvim/parts/autocmd.vim
 
 
 
