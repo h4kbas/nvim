@@ -1,5 +1,4 @@
 
-
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
@@ -58,8 +57,10 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+nnoremap <leader>cd :lcd %:p:h<CR>
 
+"" Set neotree directiry
+nnoremap <leader>cd :NERDTreeCWD<CR>
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -133,6 +134,21 @@ nnoremap <leader>j zfi}
 
 
 
+function! s:check_back_space() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:show_documentation()
+if (index(['vim','help'], &filetype) >= 0)
+execute 'h '.expand('<cword>')
+else
+call CocAction('doHover')
+endif
+endfunction
+
+
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -189,6 +205,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
@@ -232,3 +249,6 @@ nnoremap <silent> <leader>f :Rgrep<CR>
 "" NERDTree configuration
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" Terminal exit
+:tnoremap <Esc> <C-\><C-n>

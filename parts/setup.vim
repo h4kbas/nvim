@@ -28,9 +28,9 @@ set mouse=a
 set backspace=indent,eol,start
 
 "" Tabs. May be overridden by autocmd rules
-set tabstop=2
+set tabstop=4
 set softtabstop=0
-set shiftwidth=2
+set shiftwidth=4
 set expandtab
 
 "" Map leader to ,
@@ -116,3 +116,4 @@ if has('autocmd')
 autocmd GUIEnter * set visualbell t_vb=
 endif
 
+nnoremap <leader>cd :cd %:p:h<CR>
